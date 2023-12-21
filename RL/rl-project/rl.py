@@ -1,26 +1,29 @@
 import gym
 import gym_maze
 
-# Create an environment
-env = gym.make("maze-random-10x10-plus-v0")
-observation = env.reset()
+if __name__ == '__main__':
+    # Create an environment
+    env = gym.make("maze-random-10x10-plus-v0")
+    observation = env.reset()
 
-# Define the maximum number of iterations
-NUM_EPISODES = 1000
+    # Define the maximum number of iterations
+    NUM_EPISODES = 1000
 
-for episode in range(NUM_EPISODES):
+    for episode in range(NUM_EPISODES):
 
-    # TODO: Implement the agent policy here
-    # Note: .sample() is used to sample random action from the environment's action space
+        env.render()
 
-    # Choose an action (Replace this random action with your agent's policy)
-    action = env.action_space.sample()
+        # TODO: Implement the agent policy here
+        # Note: .sample() is used to sample random action from the environment's action space
 
-    # Perform the action and receive feedback from the environment
-    next_state, reward, done, truncated = env.step(action)
+        # Choose an action (Replace this random action with your agent's policy)
+        action = env.action_space.sample()
 
-    if done or truncated:
-        observation = env.reset()
+        # Perform the action and receive feedback from the environment
+        next_state, reward, done, truncated = env.step(action)
 
-# Close the environment
-env.close()
+        if done or truncated:
+            observation = env.reset()
+
+    # Close the environment
+    env.close()
