@@ -14,7 +14,7 @@ if __name__ == '__main__':
     q_table = np.zeros((space_size * space_size, action_size))
 
     # Define the maximum number of iterations
-    NUM_EPISODES = 100
+    NUM_EPISODES = 1000
 
     # learning rate
     alfa = 0.8
