@@ -32,7 +32,8 @@ if __name__ == '__main__':
             action = np.argmax(q_table[state])
 
             xy_new_state, reward, done, info = env.step(action)
-
+            import time
+            time.sleep(0.001)
             new_state = int(xy_new_state[0] * space_size + xy_new_state[1])
 
             q_table[state][action] = (1 - alfa) * q_table[state][action] + alfa * (reward + gamma * max(q_table[new_state]))
